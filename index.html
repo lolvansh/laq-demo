@@ -52,13 +52,13 @@
   .reveal {
     position: absolute; z-index: 2;
     width: min(92vw, 820px); padding: 24px 16px; text-align: center;
-    animation: act1-out .8s ease 6.6s forwards;
+    animation: act1-out 1s ease 8.6s forwards;
   }
 
   .seal {
     width: 150px; height: 150px; margin: 0 auto 12px; display: block;
     opacity: 0; transform: scale(.4) rotate(-30deg);
-    animation: seal-in 1s cubic-bezier(.17,.84,.3,1.2) 3.0s forwards;
+    animation: seal-in 1.3s cubic-bezier(.17,.84,.3,1.2) 3.9s forwards;
     filter: drop-shadow(0 0 26px rgba(255,200,90,.45)) drop-shadow(0 6px 18px rgba(0,0,0,.5));
   }
 
@@ -67,7 +67,7 @@
     font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
     color: var(--gold-bright); border: 1px solid rgba(232,199,102,.4);
     border-radius: 999px; padding: 6px 14px; margin-bottom: 14px;
-    opacity: 0; animation: rise .8s ease-out 2.4s forwards;
+    opacity: 0; animation: rise 1.04s ease-out 3.12s forwards;
   }
   .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 10px var(--saffron); }
 
@@ -75,7 +75,7 @@
     font-family: "Marcellus", Georgia, serif; font-weight: 400;
     font-size: clamp(30px, 6.4vw, 60px); line-height: 1.05; margin: 6px 0 4px;
     text-wrap: balance; color: var(--ink); text-shadow: 0 2px 30px rgba(0,0,0,.5);
-    opacity: 0; animation: rise .9s ease-out 3.8s forwards;
+    opacity: 0; animation: rise 1.17s ease-out 4.94s forwards;
   }
   h1 .accent {
     background: linear-gradient(90deg, var(--saffron), var(--gold-bright));
@@ -85,14 +85,14 @@
 
   .devnagari {
     font-size: clamp(16px, 3.4vw, 22px); color: var(--ink-dim); letter-spacing: .02em;
-    margin: 2px 0 14px; opacity: 0; animation: rise .9s ease-out 4.1s forwards;
+    margin: 2px 0 14px; opacity: 0; animation: rise 1.17s ease-out 5.33s forwards;
   }
 
   .tricolour {
     width: 220px; max-width: 70%; height: 5px; margin: 0 auto 18px;
     border-radius: 4px; overflow: hidden; display: flex;
     transform: scaleX(0); transform-origin: center;
-    animation: grow-x .8s cubic-bezier(.2,.7,.3,1) 4.5s forwards;
+    animation: grow-x 1.04s cubic-bezier(.2,.7,.3,1) 5.85s forwards;
   }
   .tricolour span { flex: 1; }
   .tricolour .s { background: var(--saffron); }
@@ -101,11 +101,11 @@
 
   .tagline {
     font-size: clamp(14px, 2.6vw, 17px); line-height: 1.6; color: var(--ink-dim);
-    max-width: 58ch; margin: 0 auto 20px; opacity: 0; animation: rise .9s ease-out 4.4s forwards;
+    max-width: 58ch; margin: 0 auto 20px; opacity: 0; animation: rise 1.17s ease-out 5.72s forwards;
   }
 
   .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px;
-    opacity: 0; animation: rise .9s ease-out 4.9s forwards; }
+    opacity: 0; animation: rise 1.17s ease-out 6.37s forwards; }
   .badges span { font-size: 12px; letter-spacing: .06em; padding: 7px 14px; border-radius: 8px;
     background: rgba(255,255,255,.05); border: 1px solid rgba(232,199,102,.25); color: var(--ink); }
 
@@ -116,17 +116,35 @@
     background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-deep));
     padding: 10px 22px; border-radius: 999px;
     box-shadow: 0 8px 26px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.4);
-    opacity: 0; transform: scale(.7); animation: stamp-in .7s cubic-bezier(.17,.84,.3,1.4) 5.3s forwards;
+    opacity: 0; transform: scale(.7); animation: stamp-in 0.91s cubic-bezier(.17,.84,.3,1.4) 6.89s forwards;
   }
 
   /* ---- Act 2: the live website ---- */
   .pilot { display: block; margin-bottom: 8px; color: var(--gold-bright); font-style: normal;
     font-family: "Mukta", sans-serif; font-weight: 600; font-size: .36em; letter-spacing: .12em;
     text-transform: uppercase; line-height: 1.3; text-shadow: none; }
+  /* ---- Act 1b: what the portal does ---- */
+  .highlights { position: absolute; inset: 0; z-index: 3; display: grid; place-content: center; justify-items: center;
+    gap: 22px; padding: 0 20px; text-align: center; opacity: 0; pointer-events: none;
+    animation: hl-in .8s ease 9.8s forwards, hl-out .8s ease 17s forwards; }
+  .hl-kicker { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-bright); }
+  .hl-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 880px; }
+  .hl-item { min-width: 150px; padding: 18px 20px; border-radius: 12px; background: rgba(255,255,255,.05);
+    border: 1px solid rgba(232,199,102,.3); opacity: 0; animation: rise .8s ease-out forwards; }
+  .hl-item b { display: block; font-family: "Marcellus", Georgia, serif; font-weight: 400; font-size: 26px; color: var(--gold-bright); margin-bottom: 6px; }
+  .hl-item span { font-size: 15px; color: var(--ink); }
+  .hl-item:nth-child(1) { animation-delay: 10.4s; } .hl-item:nth-child(2) { animation-delay: 11.0s; }
+  .hl-item:nth-child(3) { animation-delay: 11.6s; } .hl-item:nth-child(4) { animation-delay: 12.2s; }
+  .hl-item:nth-child(5) { animation-delay: 12.8s; }
+  .hl-pilot { font-size: 15px; color: var(--ink-dim); opacity: 0; animation: rise .8s ease-out 14s forwards; }
+  .hl-pilot span { margin-left: 10px; padding: 6px 16px; border-radius: 999px; color: var(--ink); border: 1px solid var(--gold); }
+  @keyframes hl-in { to { opacity: 1; } }
+  @keyframes hl-out { from { opacity: 1; } to { opacity: 0; } }
+
   .site-scene {
     position: absolute; z-index: 3; width: min(94vw, 960px); padding: 0 16px;
     text-align: center; opacity: 0; transform: translateY(40px) scale(.96);
-    animation: act2-in 1s cubic-bezier(.2,.7,.3,1.05) 7.0s forwards;
+    animation: act2-in 1s cubic-bezier(.2,.7,.3,1.05) 17.8s forwards;
   }
   .live-row { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 14px;
     font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
@@ -150,7 +168,7 @@
   .browser .url .lock { color: #7ee2a8; }
   .browser .viewport { height: min(56vh, 520px); overflow: hidden; }
   .browser .shot { display: block; width: 100%; height: auto; will-change: transform;
-    animation: tour 30s cubic-bezier(.45,0,.55,1) 8.4s forwards; }
+    animation: tour 20.5s cubic-bezier(.45,0,.55,1) 19s forwards; }
 
   .visit {
     display: inline-flex; align-items: center; gap: 9px; margin-top: 18px;
@@ -169,7 +187,7 @@
     position: absolute; top: 0; left: 0; right: 0; height: 92px; z-index: 6;
     background: radial-gradient(28px 46px at 28px 0, var(--velvet-hi), var(--velvet) 60%, var(--velvet-lo)) repeat-x;
     background-size: 56px 92px; box-shadow: 0 6px 18px rgba(0,0,0,.5); transform: translateY(-4px);
-    animation: valance-up .9s cubic-bezier(.6,0,.3,1) 3.0s forwards;   /* lifts away as the logo lands */
+    animation: valance-up 1.17s cubic-bezier(.6,0,.3,1) 3.9s forwards;   /* lifts away as the logo lands */
   }
   .valance::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 12px;
     background: radial-gradient(10px 12px at 10px 0, var(--gold) 55%, rgba(0,0,0,0) 60%) repeat-x;
@@ -186,8 +204,8 @@
       rgba(0,0,0,.5) 100%);
     background-size: 120px 100%; box-shadow: inset 0 40px 60px rgba(0,0,0,.4); will-change: transform;
   }
-  .curtain.left { left: 0; transform-origin: left center; animation: open-left 2.6s cubic-bezier(.65,.02,.25,1) 1.9s forwards; }
-  .curtain.right{ right: 0; transform-origin: right center; animation: open-right 2.6s cubic-bezier(.65,.02,.25,1) 1.9s forwards; }
+  .curtain.left { left: 0; transform-origin: left center; animation: open-left 3.38s cubic-bezier(.65,.02,.25,1) 2.47s forwards; }
+  .curtain.right{ right: 0; transform-origin: right center; animation: open-right 3.38s cubic-bezier(.65,.02,.25,1) 2.47s forwards; }
   .curtain::after { content: ""; position: absolute; top: 0; bottom: 0; width: 60px; }
   .curtain.left::after  { right: 0; background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.55)); }
   .curtain.right::after { left: 0;  background: linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,.55)); }
@@ -196,7 +214,7 @@
 
   /* ---- Controls ---- */
   .controls { position: fixed; z-index: 20; right: 16px; bottom: calc(18px + env(safe-area-inset-bottom, 0px));
-    display: flex; gap: 10px; opacity: 0; animation: rise .6s ease 7.6s forwards; }
+    display: flex; gap: 10px; opacity: 0; animation: rise .6s ease 18.8s forwards; }
   .controls button { font-family: "Mukta", sans-serif; font-size: 13px; letter-spacing: .04em; color: var(--ink);
     cursor: pointer; background: rgba(255,255,255,.06); border: 1px solid rgba(232,199,102,.35);
     border-radius: 999px; padding: 9px 18px; display: inline-flex; align-items: center; gap: 7px;
@@ -229,7 +247,7 @@
   .stage:not(.play) .kicker, .stage:not(.play) h1, .stage:not(.play) .devnagari,
   .stage:not(.play) .tricolour, .stage:not(.play) .tagline, .stage:not(.play) .badges,
   .stage:not(.play) .stamp, .stage:not(.play) .reveal, .stage:not(.play) .site-scene,
-  .stage:not(.play) .shot, .stage:not(.play) .valance, .stage:not(.play) .curtain, .stage:not(.play) .controls, .stage:not(.play) .skip { animation: none !important; }
+  .stage:not(.play) .shot, .stage:not(.play) .highlights, .stage:not(.play) .hl-item, .stage:not(.play) .hl-pilot, .stage:not(.play) .valance, .stage:not(.play) .curtain, .stage:not(.play) .controls, .stage:not(.play) .skip { animation: none !important; }
 
   /* Skip / final frame: curtains open, ceremony gone, the live site on screen. */
   .stage.ended * { animation: none !important; }
@@ -246,6 +264,7 @@
     .curtain.left  { transform: translateX(-104%); animation: none; }
     .curtain.right { transform: translateX(104%);  animation: none; }
     .valance { transform: translateY(-130%); animation: none; }
+    .highlights { display: none; }
     .reveal { opacity: 0; animation: none; }
     .site-scene { opacity: 1; transform: none; animation: none; }
     .browser .shot { animation: none; }
@@ -305,6 +324,19 @@
       land acquisition proposals, approvals, payments, objections and project tracking.</p>
     <div class="badges"><span>ISO 27001 Certified</span><span>GIGW Compliant</span><span>NIC Hosted</span></div>
     <div class="stamp">★ &nbsp;Inaugurated · 2026&nbsp; ★</div>
+  </div>
+
+  <!-- Act 1b -->
+  <div class="highlights">
+    <div class="hl-kicker">One platform · five core functions</div>
+    <div class="hl-grid">
+      <div class="hl-item"><b>01</b><span>Land Acquisition Proposals</span></div>
+      <div class="hl-item"><b>02</b><span>Approvals</span></div>
+      <div class="hl-item"><b>03</b><span>Payments</span></div>
+      <div class="hl-item"><b>04</b><span>Objections</span></div>
+      <div class="hl-item"><b>05</b><span>Project Tracking</span></div>
+    </div>
+    <div class="hl-pilot">Pilot districts <span>Ahilyanagar</span><span>Buldhana</span></div>
   </div>
 
   <!-- Act 2 -->
@@ -625,23 +657,25 @@
       applause(t0 + 0.4, 2.2, 0.8); chime(t0 + 0.8); sparkle(t0 + 0.8);
       return;
     }
-    drone(t0, 8.4);                          // ambient pad under it all
+    drone(t0, 11);                          // ambient pad under it all
     warmBloom(t0 + 0.1);                      // soft warm chord opens the ceremony
-    riser(t0 + 0.9, 1.0);                    // build into the curtains
-    swish(t0 + 1.9, 2.3, -0.6);              // curtains part
-    swish(t0 + 2.0, 2.2,  0.6);
-    gong(t0 + 3.0);                          // emblem lands
-    applause(t0 + 3.1, 3.6, 1.0);            // crowd cheers the reveal
-    dholPattern(t0 + 3.2, 3.0, 0.5);         // drums join in
-    shutters(t0 + 3.2, 2.6, 0.22);           // press cameras
-    shehnai(t0 + 3.4, [523.25, 587.33, 659.25, 587.33, 783.99, 659.25], 0.3, 0.55, 0.12); // auspicious phrase
-    chime(t0 + 5.3); sparkle(t0 + 5.3);      // "Inaugurated" stamp
-    whoosh(t0 + 6.9);                        // site rises
-    shehnai(t0 + 7.0, [783.99, 880.00, 1046.5], 0.26, 0.6, 0.12); // flourish
-    applause(t0 + 7.2, 2.0, 0.7);
-    dhol(t0 + 7.0, 0.6); dhol(t0 + 7.25, 0.5);
-    chime(t0 + 7.4); sparkle(t0 + 7.4);
-    drone(t0 + 8.0, 31);                     // gentle pad under the site tour
+    riser(t0 + 1.2, 1.3);                    // build into the curtains
+    swish(t0 + 2.5, 3.0, -0.6);              // curtains part
+    swish(t0 + 2.6, 2.9,  0.6);
+    gong(t0 + 3.9);                          // emblem lands
+    applause(t0 + 4.0, 4.7, 1.0);            // crowd cheers the reveal
+    dholPattern(t0 + 4.2, 3.9, 0.5);         // drums join in
+    shutters(t0 + 4.2, 3.4, 0.22);           // press cameras
+    shehnai(t0 + 4.4, [523.25, 587.33, 659.25, 587.33, 783.99, 659.25], 0.39, 0.7, 0.12); // auspicious phrase
+    chime(t0 + 6.9); sparkle(t0 + 6.9);      // "Inaugurated" stamp
+    sparkle(t0 + 10.4); sparkle(t0 + 11.0); sparkle(t0 + 11.6); sparkle(t0 + 12.2); sparkle(t0 + 12.8); // feature cards
+    chime(t0 + 14.0);                        // pilot districts
+    whoosh(t0 + 17.7);                        // site rises
+    shehnai(t0 + 17.8, [783.99, 880.00, 1046.5], 0.26, 0.6, 0.12); // flourish
+    applause(t0 + 18.0, 2.0, 0.7);
+    dhol(t0 + 17.8, 0.6); dhol(t0 + 18.05, 0.5);
+    chime(t0 + 18.2); sparkle(t0 + 18.2);
+    drone(t0 + 10.5, 29.5);                     // gentle pad under the site tour
     shehnai(t0 + 36.6, [659.25, 783.99, 880.00, 1046.5], 0.3, 0.7, 0.12); // closing phrase
     applause(t0 + 38.4, 1.6, 0.7); dhol(t0 + 38.4, 0.6); chime(t0 + 38.6); sparkle(t0 + 38.6);
   }
@@ -649,8 +683,8 @@
   function scheduleConfetti() {
     clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
     if (reduce) return;
-    t1 = setTimeout(burst, 4600);  // curtains open
-    t2 = setTimeout(burst, 7200);  // site revealed
+    t1 = setTimeout(burst, 6000);  // curtains open
+    t2 = setTimeout(burst, 17800);  // site revealed
     t3 = setTimeout(burst, 38400); // closing burst at ~40s
   }
 
