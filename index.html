@@ -145,32 +145,10 @@
   @keyframes hl-in { to { opacity: 1; } }
   @keyframes hl-out { from { opacity: 1; } to { opacity: 0; } }
 
-  /* ---- Act 3: the inauguration plaque ---- */
-  .inaug {
-    position: absolute; z-index: 4; width: min(94vw, 1040px); padding: 0 16px;
-    text-align: center; opacity: 0; transform: translateY(44px) scale(.95);
-    animation: act3-in 1.1s cubic-bezier(.2,.7,.3,1.05) 33.6s forwards;
-  }
-  .inaug-kicker {
-    display: inline-flex; align-items: center; gap: 9px; margin-bottom: 14px;
-    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-bright);
-    border: 1px solid rgba(232,199,102,.4); border-radius: 999px; padding: 6px 16px;
-  }
-  .inaug-kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--saffron);
-    box-shadow: 0 0 10px var(--saffron); }
-  .plaque {
-    border-radius: 14px; overflow: hidden; background: #fff;
-    border: 1px solid rgba(232,199,102,.5);
-    box-shadow: 0 30px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.4),
-                0 0 44px rgba(255,200,90,.18);
-  }
-  .plaque img { display: block; width: 100%; height: auto; }
-
   .site-scene {
     position: absolute; z-index: 3; width: min(94vw, 960px); padding: 0 16px;
     text-align: center; opacity: 0; transform: translateY(40px) scale(.96);
-    animation: act2-in 1s cubic-bezier(.2,.7,.3,1.05) 17.8s forwards,
-               act2-out .9s ease 33s forwards;
+    animation: act2-in 1s cubic-bezier(.2,.7,.3,1.05) 17.8s forwards;
   }
   .live-row { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 14px;
     font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
@@ -263,8 +241,6 @@
   @keyframes stamp-in { to { opacity: 1; transform: scale(1); } }
   @keyframes act1-out { to { opacity: 0; transform: translateY(-34px) scale(.92); } }
   @keyframes act2-in { to { opacity: 1; transform: translateY(0) scale(1); } }
-  @keyframes act2-out { to { opacity: 0; transform: translateY(-30px) scale(.96); } }
-  @keyframes act3-in { to { opacity: 1; transform: translateY(0) scale(1); } }
   @keyframes valance-up { to { transform: translateY(-130%); } }
   @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(46,204,113,.6);} 70%{ box-shadow:0 0 0 10px rgba(46,204,113,0);} 100%{ box-shadow:0 0 0 0 rgba(46,204,113,0);} }
 
@@ -272,7 +248,7 @@
   .stage:not(.play) .spotlight, .stage:not(.play) .floor, .stage:not(.play) .seal,
   .stage:not(.play) .kicker, .stage:not(.play) h1, .stage:not(.play) .devnagari,
   .stage:not(.play) .tricolour, .stage:not(.play) .tagline, .stage:not(.play) .badges,
-  .stage:not(.play) .stamp, .stage:not(.play) .reveal, .stage:not(.play) .site-scene, .stage:not(.play) .inaug,
+  .stage:not(.play) .stamp, .stage:not(.play) .reveal, .stage:not(.play) .site-scene,
   .stage:not(.play) .shot, .stage:not(.play) .highlights, .stage:not(.play) .hl-item, .stage:not(.play) .hl-pilot, .stage:not(.play) .valance, .stage:not(.play) .curtain, .stage:not(.play) .controls, .stage:not(.play) .skip { animation: none !important; }
 
   /* Skip / final frame: curtains open, ceremony gone, the live site on screen. */
@@ -282,8 +258,7 @@
   .stage.ended .curtain.right { transform: translateX(104%) !important; }
   .stage.ended .valance { transform: translateY(-130%) !important; }
   .stage.ended .reveal { opacity: 0 !important; }
-  .stage.ended .site-scene { opacity: 0 !important; }
-  .stage.ended .inaug { opacity: 1 !important; transform: none !important; }
+  .stage.ended .site-scene { opacity: 1 !important; transform: none !important; }
   .stage.ended .controls, .stage.ended .skip { opacity: 1 !important; transform: none !important; }
 
   @media (prefers-reduced-motion: reduce) {
@@ -293,8 +268,7 @@
     .valance { transform: translateY(-130%); animation: none; }
     .highlights { display: none; }
     .reveal { opacity: 0; animation: none; }
-    .site-scene { display: none; }
-    .inaug { opacity: 1; transform: none; animation: none; }
+    .site-scene { opacity: 1; transform: none; animation: none; }
       .controls, .skip { opacity: 1; animation: none; }
   }
 
@@ -379,14 +353,6 @@
     <a class="visit" href="https://rccms.mahabhumi.gov.in/" target="_blank" rel="noopener">
       Visit the Portal ↗
     </a>
-  </div>
-
-  <!-- Act 3 -->
-  <div class="inaug">
-    <div class="inaug-kicker"><span class="dot"></span> Inauguration</div>
-    <div class="plaque">
-      <img src="rccms-inauguration.jpg" alt="महा-महसूल न्यायालय दावा व्यवस्थापन प्रणाली (MH-RCCMS) — unveiled by Hon. Revenue Minister Shri Chandrashekhar Bawankule, with Hon. Shri Shailesh Naval and Hon. Shri Vikas Kharge." />
-    </div>
   </div>
 
   <div class="valance"></div>
@@ -711,7 +677,6 @@
     dhol(t0 + 17.8, 0.6); dhol(t0 + 18.05, 0.5);
     chime(t0 + 18.2); sparkle(t0 + 18.2);
     drone(t0 + 10.5, 29.5);                     // gentle pad under the site tour
-    chime(t0 + 33.6); sparkle(t0 + 33.6);   // inauguration plaque
     shehnai(t0 + 36.6, [659.25, 783.99, 880.00, 1046.5], 0.3, 0.7, 0.12); // closing phrase
     applause(t0 + 38.4, 1.6, 0.7); dhol(t0 + 38.4, 0.6); chime(t0 + 38.6); sparkle(t0 + 38.6);
   }
